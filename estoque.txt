@@ -1,0 +1,15 @@
+ewr,wer,ewr,1
+ewqddsv,sdvsdv,dsfsdf,0
+a,a,a,0
+a,a,a,0
+ghfgh,hfgh,fgh,1
+asdasd,12,1,0
+asdasda,12,2,0
+asd,4,4,1
+asdas,56,1,1
+a,12,1,1
+a,12,2,0
+a,12,2,1
+a,12,4,1
+a,12,66,0
+a,9,22,0
