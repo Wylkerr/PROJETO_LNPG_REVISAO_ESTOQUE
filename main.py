@@ -11,26 +11,33 @@ def adicionar_produto():
     temperatura = buttom.get()
     erro = 0
 
-
     if nome.strip() == '':
         # Label(window, text='Nome é obrigatorio').grid(column=3, row= 0)
         erro += 1
-    if qtd.strip() == '' or qtd.isnumeric or int(qtd) <= 0:
+    if qtd.strip() == '' or int(qtd) <= 0:
         # Label(window, text='Quantidade é obrigatoria').grid(column=3, row= 1)
         erro += 1
-    if preco_uni.strip() == '' or preco_uni.isdecimal or float(preco_uni) <= 0:
+    if preco_uni.strip() == '' or float(preco_uni) <= 0:
         # Label(window, text='O preço deve ser maior que 0').grid(column=3, row= 2)
         erro += 1
 
-    if erro == 0:
+    if erro == 0 and qtd.isnumeric and preco_uni.isnumeric:
         with open('estoque.txt', 'a', encoding= 'utf-8') as estoque:
             estoque.write(f"{nome},{qtd},{preco_uni},{temperatura}\n")
+            mensagem = Label(window, text='Produto Cadastrado')
+            mensagem.grid(column=0, row= 5, columnspan=2)
+    
     else:
-        Label(window, text='Por favor preencha todos os campos corretamente').grid(column=0, row= 5, columnspan=2)
+        mensagem = Label(window, text='Por favor preencha todos os campos corretamente')
+        mensagem.grid(column=0, row= 5, columnspan=2)
+
+    
+
 def mostrar_lista():
     with open('estoque.txt', 'r') as variable_estoque:
         estoque = variable_estoque.read()
         Label(window, text=estoque).grid(row=6)
+        
 
 def limpar_formulario():
     input_qtd.delete(0, END)
